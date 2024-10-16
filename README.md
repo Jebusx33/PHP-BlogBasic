@@ -14,6 +14,9 @@
 8. Página de edición de entradas para usuarios logueados.
 9. Poder borrar entradas “.
 10. Añadir un buscador de entradas a la web.
+###
 
-###Diagrama SQL 
+
+### Diagrama SQL 
+
 ![](https://s3-ap-northeast-1.amazonaws.com/g0v-hackmd-images/uploads/upload_a66c687012deebfc213eea91953e8af6.png)
