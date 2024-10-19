@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const email = document.getElementById('email').value;
         
         // Validación simple de la contraseña
-        if (password.length < 8) {
+        if (password.length < 4) {
             alert('La contraseña debe tener al menos 8 caracteres');
             e.preventDefault(); // Evita que se envíe el formulario
         }

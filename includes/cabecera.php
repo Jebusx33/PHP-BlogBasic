@@ -1,6 +1,6 @@
 <?php
 include './Config/conexion.php';
-$db = conectarDB();
+$BD = conectarDB();
 ?>
 <!DOCTYPE html>
 <html lang="en">

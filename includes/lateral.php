@@ -23,7 +23,18 @@ include_once './includes/helpers.php'
                   endif; */
                   ?>
                     <h3>Registrate</h3>
+                  <!--Mostrar errores-->
+                    <?php if(isset($_SESSION['completado'])): ?>
+                    <div class="alerta alerta-exito">
+                        <?php echo $_SESSION['completado'];?>
+                    </div>
+                    <?php elseif(isset($_SESSION['errores']['general'])): ?>
+                    <div class="alerta alerta-exito">
+                        <?php echo $_SESSION['errores']['general'];?>
+                    </div>    
+                    <?php endif; ?>    
                     <form action="./registro.php" method="POST">
+
                         <label for="nombre">Nombre</label>
                         <input type="text" name="nombre" id="">
                         <?php echo isset($_SESSION['errores']) ? mostrarError($_SESSION['errores'], 'nombre'):''; ?>
