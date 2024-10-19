@@ -8,5 +8,7 @@ function conectarDB() {
     }
     return $db;
 }
+//iniciar la secion
+session_start();
 ?>
 

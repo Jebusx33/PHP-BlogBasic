@@ -120,14 +120,21 @@ body{
     margin-top: 30px;
     margin-bottom: 30px;
 }
-
+/*
+#contenedor > a{
+    pointer-events: none;
+}
+*/
 /*BARRA LATERAL*/
 #sidebar{
     float:right;
     width: 27%;
     height: auto;
 }
-
+/*
+.bloque {
+    cursor: pointer ;
+}*/
 .bloque{
     display:block;
     width: 90%;
@@ -233,7 +240,7 @@ input[type="submit"],
     margin-top: 8px;
 }
 
-#ver-todas > a{
+#ver-todas a{
     display: block;
     border-radius: 2px;
     padding: 15px;
