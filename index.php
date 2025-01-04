@@ -1,54 +1,42 @@
 <?php
-include_once "./includes/cabecera.php";
-?>
-        <!-- contenedor -->
-        <div id="contenedor">
-            <!--Barra lateral-->
-            <?php
-            include_once "./includes/lateral.php"
-            ?>
+include_once "./includes/cabecera.php"; ?>
+<!-- contenedor -->
+<div id="contenedor">
+    <!--Barra lateral-->
+    <?php
+    include_once "./includes/lateral.php"
+    ?>
 
-            <!--Caja principal-->
-            <div id="principal">
-                <h1>Ultimas entradas</h1>
+    <!--Caja principal-->
+    <div id="principal">
+        <h1>Ultimas entradas</h1>
 
-                <article class="entrada"> 
+
+        <?php
+        $entradas = conseguirUltimasEntradas($BD);
+        if (!empty($entradas)):
+            while ($entrada = mysqli_fetch_assoc($entradas)):
+        ?>
+                <article class="entrada">
                     <a href="">
-                        <h2>Titulo entrada</h2>
-                        <p> Descripcion Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-                            Doloribus accusamus repellendus quidem. Perspiciatis asperiores officiis et eligendi 
-                            voluptates architecto porro necessitatibus dolores corporis veritatis aspernatur,
-                            ut fugit, inventore alias magnam!</p>    
+                        <h2><?= $entrada['titulo']; ?></h2>
+                        <span class="fecha"><?= $entrada['categoria']." | ".$entrada['fecha']; ?></span>
+                        <p> <?= substr($entrada['descripcion'], 0, 185)."..."; ?></p>
                     </a>
                 </article>
+        <?php
+            endwhile;
+        endif;
+        ?>
 
-                <article class="entrada"> 
-                    <a href="">
-                        <h2>Titulo entrada</h2>
-                        <p> Descripcion Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-                            Doloribus accusamus repellendus quidem. Perspiciatis asperiores officiis et eligendi 
-                            voluptates architecto porro necessitatibus dolores corporis veritatis aspernatur,
-                            ut fugit, inventore alias magnam!</p>    
-                    </a>
-                </article>
 
-                <article class="entrada"> 
-                    <a href="">
-                        <h2>Titulo entrada</h2>
-                        <p> Descripcion Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-                            Doloribus accusamus repellendus quidem. Perspiciatis asperiores officiis et eligendi 
-                            voluptates architecto porro necessitatibus dolores corporis veritatis aspernatur,
-                            ut fugit, inventore alias magnam!</p>    
-                    </a>
-                </article>
+        <div id="ver-todas">
+            <a href="">Ver toda las entradas</a>
+        </div>
 
-                <div id="ver-todas">
-                    <a href="">Ver toda las entradas</a>
-                </div>
-
-            </div> <!--Fin Principal-->
-        <div class="clearfix"></div>
-        </div> <!-- Fin contenedor -->
+    </div> <!--Fin Principal-->
+    <div class="clearfix"></div>
+</div> <!-- Fin contenedor -->
 
 <?php
 include_once "./includes/piePagina.php";

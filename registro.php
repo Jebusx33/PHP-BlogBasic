@@ -12,7 +12,7 @@ if ($_POST) {
                                         //evita que se meta consulta sql y tranfora todo a string 
     $nombre = isset($_POST['nombre']) ? mysqli_escape_string($BD, $_POST['nombre']): false;
     $apellido = isset($_POST['apellido']) ? mysqli_escape_string($BD, $_POST['apellido']) : false;
-    $email = isset($_POST['email']) ? mysqli_escape_string($BD, $_POST['email']) : false;
+    $email = isset($_POST['email']) ? mysqli_escape_string($BD, trim(mb_strtolower($_POST['email']))) : false;
     $password = isset($_POST['password']) ? mysqli_escape_string($BD, $_POST['password']) : false;
     // array de errores
     $errores=array();
@@ -85,4 +85,3 @@ if (count($errores) == 0) {
 
 }
 header('Location:index.php');
-?>
